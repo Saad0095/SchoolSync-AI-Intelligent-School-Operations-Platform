@@ -1,0 +1,4678 @@
+{
+	"info": {
+		"_postman_id": "2b6bdf30-01d1-414b-9396-32a647737379",
+		"name": "School Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46823724",
+		"_collection_link": "https://shehryaransar.postman.co/workspace/Shehryar-Ansar's-Workspace~667029e1-9add-4897-8326-f6c07cd4ac9f/collection/46823724-2b6bdf30-01d1-414b-9396-32a647737379?action=share&source=collection_link&creator=46823724"
+	},
+	"item": [
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "checkHealth",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testAi",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    // \"email\": \"north.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    \"email\": \"north-001_teacher1@school.com\",\r\n    \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher5@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/test-ai",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ai",
+								"test-ai"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "createSuperAdmin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Saad\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"superadmin1@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"address\": \"Karachi, Pakistan\",\r\n    \"dob\": \"2005-03-12\",\r\n    \"contact\": \"03001234567\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/createSuperAdmin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"createSuperAdmin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createSuperAdmin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"gender\": \"Male\",\r\n    \"email\": \"admin2@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"address\": \"Karachi, Pakistan\",\r\n    \"dob\": \"2005-03-12\",\r\n    \"contact\": \"03001234567\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/createSuperAdmin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"createSuperAdmin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-R9odll26D8C2OAugFjD2DNExGUY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 16:01:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully!\",\n    \"user\": {\n        \"id\": \"68ea7f564dfb3f7324e555a2\",\n        \"name\": \"Admin\",\n        \"email\": \"admin2@gmail.com\",\n        \"role\": \"super-admin\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "registerCampusAdmin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Campus Y\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"campusadmin2@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"contact\": \"03001234567\",\r\n  \"address\": \"Karachi, Pakistan\",\r\n  \"dob\": \"2005-03-12\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register-admin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register-admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "registerCampusAdmin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Campus X\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"campusx@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"contact\": \"03001234567\",\r\n  \"address\": \"Karachi, Pakistan\",\r\n  \"dob\": \"2005-03-12\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/register-admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register-admin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "152"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"98-wdbRtNw365vPF7fAmQw/P9dUKSY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Oct 2025 19:26:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully!\",\n    \"user\": {\n        \"id\": \"68ec00cea0fc6e3962e4f0f8\",\n        \"name\": \"Campus X\",\n        \"email\": \"campusx@gmail.com\",\n        \"role\": \"campus-admin\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "addStudentTeacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// Teacher\r\n\r\n{\r\n  \"name\": \"Teacher 8\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"teacher8@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"contact\": \"03001234567\",\r\n  \"address\": \"Karachi, Pakistan\",\r\n  \"dob\": \"2005-03-12\",\r\n  \"role\": \"teacher\"\r\n}\r\n\r\n// Student \r\n\r\n// {\r\n//   \"name\": \"Student 1\",\r\n//   \"gender\": \"Male\",\r\n//   \"email\": \"student1@gmail.com\",\r\n//   \"password\": \"123456\",\r\n//   \"contact\": \"03001234567\",\r\n//   \"address\": \"Karachi, Pakistan\",\r\n//   \"dob\": \"2005-03-12\",\r\n//   \"role\": \"student\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/add-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"add-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addStudentTeacher",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "// Teacher\r\n\r\n{\r\n  \"name\": \"Teacher 8\",\r\n  \"gender\": \"Male\",\r\n  \"email\": \"teacher8@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"contact\": \"03001234567\",\r\n  \"address\": \"Karachi, Pakistan\",\r\n  \"dob\": \"2005-03-12\",\r\n  \"role\": \"teacher\"\r\n}\r\n\r\n// Student \r\n\r\n// {\r\n//   \"name\": \"Student 1\",\r\n//   \"gender\": \"Male\",\r\n//   \"email\": \"student1@gmail.com\",\r\n//   \"password\": \"123456\",\r\n//   \"contact\": \"03001234567\",\r\n//   \"address\": \"Karachi, Pakistan\",\r\n//   \"dob\": \"2005-03-12\",\r\n//   \"role\": \"student\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/add-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"add-user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95-vuVuvkH8DwbkFppLHa0TTjWGPRQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 16:02:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully!\",\n    \"user\": {\n        \"id\": \"68ea7f814dfb3f7324e555a8\",\n        \"name\": \"Teacher 8\",\n        \"email\": \"teacher8@gmail.com\",\n        \"role\": \"teacher\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // Super Admin (Saad)\r\n//   \"email\": \"saadbinkhalid1895@gmail.com\",\r\n//   \"password\": \"123456\"\r\n\r\n    // \"email\": \"sheryaaransar3@gmail.com\",\r\n    // \"password\": \"superadmin\"\r\n\r\n    //super-admin\r\n\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    \"email\": \"north.admin@school.com\",\r\n    \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    // Student (Saad)\r\n//   \"email\": \"sbk1895@gmail.com\",\r\n//   \"password\": \"123456\"\r\n\r\n\r\n// Student (Sheryaar)\r\n//   \"email\": \"sheryaarlong@gmail.com\",\r\n//   \"password\": \"123456\"\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    \"email\": \"north.admin@school.com\",\r\n    \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "363"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16b-2bZog5rpXucG2ASsw7mHiN7Lv2k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 16:00:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"user\": {\n        \"id\": \"68e93f756852ae289c84c7a8\",\n        \"name\": \"North Admin\",\n        \"email\": \"north.admin@school.com\",\n        \"role\": \"campus-admin\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGU5M2Y3NTY4NTJhZTI4OWM4NGM3YTgiLCJyb2xlIjoiY2FtcHVzLWFkbWluIiwiaWF0IjoxNzYwMTk4NDE1LCJleHAiOjE3NjA4MDMyMTV9.nThNump5CF3HALtC8J1fA66jwK9YRQ0Xqoab71k0qwM\"\n}"
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15c-kDisTZy/pwg2nI2cI4GAqvs6DRY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 16:02:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"68e93f756852ae289c84c7a8\",\n    \"name\": \"North Admin\",\n    \"gender\": \"Female\",\n    \"email\": \"north.admin@school.com\",\n    \"contact\": \"03010000001\",\n    \"address\": \"Islamabad\",\n    \"dob\": \"1990-05-05T00:00:00.000Z\",\n    \"role\": \"campus-admin\",\n    \"isActive\": true,\n    \"createdBy\": \"68e93f756852ae289c84c7a6\",\n    \"createdAt\": \"2025-10-10T17:16:37.348Z\",\n    \"updatedAt\": \"2025-10-10T17:16:37.348Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllusers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/users?pageNumber=1&limit=10&downloadCSV=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"users"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "Male",
+									"disabled": true
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "role",
+									"value": "student",
+									"disabled": true
+								},
+								{
+									"key": "downloadCSV",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllusers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/users?pageNumber=2&limit=30&gender=Male",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "2"
+										},
+										{
+											"key": "limit",
+											"value": "30"
+										},
+										{
+											"key": "gender",
+											"value": "Male"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3924"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f54-+rnZ/u5TcqfmMLxYdbqmZ78/4vs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 12:53:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pageNumber\": 2,\n    \"limit\": 30,\n    \"total\": 57,\n    \"users\": [\n        {\n            \"_id\": \"68e93f7b6852ae289c84c90a\",\n            \"name\": \"Student 8A-7\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7de_7@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f7a6852ae289c84c902\",\n            \"name\": \"Student 8A-5\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7de_5@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f7a6852ae289c84c8fa\",\n            \"name\": \"Student 8A-3\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7de_3@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f7a6852ae289c84c8f2\",\n            \"name\": \"Student 8A-1\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7de_1@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f7a6852ae289c84c8ea\",\n            \"name\": \"Student 7B-7\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7dc_7@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f7a6852ae289c84c8e2\",\n            \"name\": \"Student 7B-5\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7dc_5@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f796852ae289c84c8da\",\n            \"name\": \"Student 7B-3\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7dc_3@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f796852ae289c84c8d2\",\n            \"name\": \"Student 7B-1\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7dc_1@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f796852ae289c84c8ca\",\n            \"name\": \"Student 7A-7\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7da_7@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f796852ae289c84c8c2\",\n            \"name\": \"Student 7A-5\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7da_5@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f796852ae289c84c8ba\",\n            \"name\": \"Student 7A-3\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7da_3@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f786852ae289c84c8b2\",\n            \"name\": \"Student 7A-1\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7da_1@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f786852ae289c84c8aa\",\n            \"name\": \"Student 6B-7\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d8_7@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f786852ae289c84c8a2\",\n            \"name\": \"Student 6B-5\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d8_5@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f786852ae289c84c89a\",\n            \"name\": \"Student 6B-3\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d8_3@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f776852ae289c84c892\",\n            \"name\": \"Student 6B-1\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d8_1@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f776852ae289c84c88a\",\n            \"name\": \"Student 6A-7\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d6_7@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f776852ae289c84c882\",\n            \"name\": \"Student 6A-5\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d6_5@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f776852ae289c84c87a\",\n            \"name\": \"Student 6A-3\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d6_3@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f766852ae289c84c872\",\n            \"name\": \"Student 6A-1\",\n            \"gender\": \"Male\",\n            \"email\": \"student_c7d6_1@school.com\",\n            \"role\": \"student\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f766852ae289c84c7d4\",\n            \"name\": \"South Teacher 6\",\n            \"gender\": \"Male\",\n            \"email\": \"south-001_teacher6@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f766852ae289c84c7d0\",\n            \"name\": \"South Teacher 4\",\n            \"gender\": \"Male\",\n            \"email\": \"south-001_teacher4@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f766852ae289c84c7cc\",\n            \"name\": \"South Teacher 2\",\n            \"gender\": \"Male\",\n            \"email\": \"south-001_teacher2@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f766852ae289c84c7c8\",\n            \"name\": \"North Teacher 6\",\n            \"gender\": \"Male\",\n            \"email\": \"north-001_teacher6@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f756852ae289c84c7c4\",\n            \"name\": \"North Teacher 4\",\n            \"gender\": \"Male\",\n            \"email\": \"north-001_teacher4@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f756852ae289c84c7c0\",\n            \"name\": \"North Teacher 2\",\n            \"gender\": \"Male\",\n            \"email\": \"north-001_teacher2@school.com\",\n            \"role\": \"teacher\",\n            \"isActive\": true\n        },\n        {\n            \"_id\": \"68e93f756852ae289c84c7a6\",\n            \"name\": \"Super Admin\",\n            \"gender\": \"Male\",\n            \"email\": \"superadmin@example.com\",\n            \"role\": \"super-admin\",\n            \"isActive\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getUsersById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getUsersById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-qQLydywE/xJZ0j2cnyu+Brr7NKc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 12:55:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"68e93f7b6852ae289c84c92a\",\n    \"name\": \"Student 8B-7\",\n    \"gender\": \"Male\",\n    \"email\": \"student_c7e0_7@school.com\",\n    \"role\": \"student\",\n    \"isActive\": true,\n    \"createdBy\": {\n        \"_id\": \"68e93f756852ae289c84c7a8\",\n        \"name\": \"North Admin\",\n        \"email\": \"north.admin@school.com\",\n        \"role\": \"campus-admin\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isActive\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateUser",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ali\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-DDD6yes64kgbiLYKUcYo3mfXOJ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 12:57:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated successfully (campus-admin)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteUser",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/users/{{userId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"users",
+										"{{userId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-xDF3FjUAhrDW+VXgSk7DoU9qPZ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Oct 2025 12:56:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted successfully (campus-admin)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sbk1895@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/forget-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"superadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/reset-password/{{resetToken}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password",
+								"{{resetToken}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollments",
+			"item": [
+				{
+					"name": "Teachers",
+					"item": [
+						{
+							"name": "assignTeacher",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"teacherId\": \"68ea7f814dfb3f7324e555a8\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n    \"classId\": \"68e4d7f110121304f94ed07a\",\r\n    \"subjectId\": \"68e4d68f10121304f94ed06f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/assign-teacher",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"assign-teacher"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAssignedTeachers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/teacher-assignments?campusId=68ea518164b28d1128663e06&page=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"teacher-assignments"
+									],
+									"query": [
+										{
+											"key": "campusId",
+											"value": "68ea518164b28d1128663e06"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateTeacherById",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"teacherId\": \"68e4e1188ac26fe38ad8e508\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n    \"subjectId\": \"68e4d68f10121304f94ed06f\",\r\n    \"classId\": \"68e4d7f110121304f94ed07a\",\r\n    \"action\": \"reassign\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/assign-teacher/{{teacherId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"assign-teacher",
+										"{{teacherId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteTeacherByID",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"teacherId\": \"68e4e1188ac26fe38ad8e508\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/assign-teacher/{{id}}/delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"assign-teacher",
+										"{{id}}",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUnassignedTeachers",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/unassigned-teachers?pageNumber=1&limit=5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"unassigned-teachers"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getUnassignedTeachers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/enrollments/unassigned-teachers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"enrollments",
+												"unassigned-teachers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "264"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"108-MqQuNCthmoWGUUpmn9DgMg+GsLg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 16:21:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"total\": 2,\n    \"data\": [\n        {\n            \"_id\": \"68e9568bed3b0c50583dcca8\",\n            \"name\": \"Teacher 7\",\n            \"email\": \"teacher7@gmail.com\",\n            \"createdBy\": \"68e93f756852ae289c84c7a8\"\n        },\n        {\n            \"_id\": \"68ea8169a981f3fcd40fbf7b\",\n            \"name\": \"Teacher 8\",\n            \"email\": \"teacher9@gmail.com\",\n            \"createdBy\": \"68e93f756852ae289c84c7a8\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Students",
+					"item": [
+						{
+							"name": "assignStudent",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"studentId\": \"68edf824560f346174b9e09a\",\r\n    \"classId\": \"68edf081e7f0599634660ba7\",\r\n    \"campusId\": \"68edf080e7f0599634660b73\",\r\n    \"rollNumber\": \"81412\",\r\n    \"academicSession\": \"2025-2026\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/enroll-student",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"enroll-student"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getStudents",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"studentId\": \"68e4d4c8ae9e8600d3872e54\",\r\n    \"classId\": \"68e4d7f110121304f94ed07a\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n    \"rollNumber\": 81412,\r\n    \"academicSession\": \"2024-2025\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/student-enrollments?page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"student-enrollments"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateStudentEnrollment",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"studentId\": \"68e4d4c8ae9e8600d3872e54\",\r\n    \"classId\": \"68e4d7f110121304f94ed07a\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n    \"rollNumber\": 814121,\r\n    \"academicSession\": \"2024-2025\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/enroll-student/{{studentId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"enroll-student",
+										"{{studentId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteStudentEnrollment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/enrollments/enroll-student/{{enrollmentId}}/delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"enrollments",
+										"enroll-student",
+										"{{enrollmentId}}",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Campus",
+			"item": [
+				{
+					"name": "createCampus",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"name\": \"School Saddar Branch\",\r\n//     \"code\": \"1001\",\r\n//     \"address\": \"Saddar, Karachi\",\r\n//     \"city\": \"Karachi\",\r\n//       \"location\": {\r\n//     \"type\": \"Point\",\r\n//     \"coordinates\": [77.5946, 12.9716]\r\n//   },\r\n//   \"contact\": {\r\n//     \"phone\": \"1234567890\",\r\n//     \"email\": \"admin@campus.com\"\r\n//   },\r\n//   \"campusAdmin\": \"68e402354ac352b57d790477\"\r\n// }\r\n{\r\n  \"name\": \"Main Campus\",\r\n  \"code\": \"MC011\",\r\n  \"address\": \"123 Main St\",\r\n  \"city\": \"Metropolis\",\r\n  \"location\": {\r\n    \"type\": \"Point\",\r\n    \"coordinates\": [77.5946, 12.9716]\r\n  },\r\n  \"contact\": {\r\n    \"phone\": \"1234567890\",\r\n    \"email\": \"admin@campus.com\"\r\n  },\r\n  \"campusAdmin\": \"68e402174ac352b57d790471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCampuses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCampusById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"name\": \"School Saddar Branch\",\r\n//     \"code\": \"1001\",\r\n//     \"address\": \"Saddar, Karachi\",\r\n//     \"city\": \"Karachi\",\r\n//       \"location\": {\r\n//     \"type\": \"Point\",\r\n//     \"coordinates\": [77.5946, 12.9716]\r\n//   },\r\n//   \"contact\": {\r\n//     \"phone\": \"1234567890\",\r\n//     \"email\": \"admin@campus.com\"\r\n//   },\r\n//   \"campusAdmin\": \"\"\r\n// }\r\n{\r\n  \"name\": \"Main Campus\",\r\n  \"code\": \"MC001\",\r\n  \"address\": \"123 Main St\",\r\n  \"city\": \"Metropolis\",\r\n  \"location\": {\r\n    \"type\": \"Point\",\r\n    \"coordinates\": [77.5946, 12.9716]\r\n  },\r\n  \"contact\": {\r\n    \"phone\": \"1234567890\",\r\n    \"email\": \"admin@campus.com\"\r\n  },\r\n  \"campusAdmin\": \"68e402174ac352b57d790471\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/{{campusId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								"{{campusId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCampusById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"name\": \"School Saddar Branch\",\r\n//     \"code\": \"1001\",\r\n//     \"address\": \"Saddar, Karachi\",\r\n//     \"city\": \"Karachi\",\r\n//       \"location\": {\r\n//     \"type\": \"Point\",\r\n//     \"coordinates\": [77.5946, 12.9716]\r\n//   },\r\n//   \"contact\": {\r\n//     \"phone\": \"1234567890\",\r\n//     \"email\": \"admin@campus.com\"\r\n//   },\r\n//   \"campusAdmin\": \"\"\r\n// }\r\n{\r\n  \"name\": \"Main Campus\",\r\n  \"code\": \"MC001\",\r\n  \"address\": \"123 Main St\",\r\n  \"city\": \"Metropolis\",\r\n  \"location\": {\r\n    \"type\": \"Point\",\r\n    \"coordinates\": [77.5946, 12.9716]\r\n  },\r\n  \"contact\": {\r\n    \"phone\": \"1234567890\",\r\n    \"email\": \"admin1@campus.com\"\r\n  },\r\n  \"campusAdmin\": \"68e402174ac352b57d790471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/68e4095a0826dd99bea798d1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								"68e4095a0826dd99bea798d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCampusById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/68e4095a0826dd99bea798d1/delete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								"68e4095a0826dd99bea798d1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewOwnCampus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/campuses/details",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"campuses",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "createSubject",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Islamiat\",\r\n  \"code\": \"CI-113\",\r\n  \"description\": \"Controversial Islamiat\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/subjects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"subjects"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createSubject",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"English\",\r\n  \"code\": \"ENG-105\",\r\n  \"description\": \"Basic English\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "120"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"78-B+W4qAnGHR81Sw3CdvpCduT1j5k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:05:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject created sucessfully!\",\n    \"subject\": {\n        \"id\": \"68e02c739d00417770c301ba\",\n        \"name\": \"English\",\n        \"code\": \"ENG-105\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllSubjects",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/subjects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"subjects"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllSubjects",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "741"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e5-9TE33b+i6budbBjgmV3PJmEzoSc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:06:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"68e02bafdb21739e19c7e781\",\n        \"name\": \"Mathematics\",\n        \"code\": \"MATH-101\",\n        \"description\": \"Basic Algebra and Arithmetic\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:01:51.177Z\",\n        \"updatedAt\": \"2025-10-03T20:01:51.177Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68e02be3db21739e19c7e787\",\n        \"name\": \"English\",\n        \"code\": \"ENG-101\",\n        \"description\": \"Basic English\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:02:43.013Z\",\n        \"updatedAt\": \"2025-10-03T20:02:43.013Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68e02c739d00417770c301ba\",\n        \"name\": \"English\",\n        \"code\": \"ENG-105\",\n        \"description\": \"Basic English\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:05:07.768Z\",\n        \"updatedAt\": \"2025-10-03T20:05:07.768Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getSubject",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/subjects/{{classId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"subjects",
+								"{{classId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getSubject",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-fJESUbnye9xnrEgF/y3rR1DTACE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:07:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"68e02bafdb21739e19c7e781\",\n    \"name\": \"Mathematics\",\n    \"code\": \"MATH-101\",\n    \"description\": \"Basic Algebra and Arithmetic\",\n    \"isActive\": true,\n    \"createdBy\": \"68dedbf04089c385dd97881a\",\n    \"createdAt\": \"2025-10-03T20:01:51.177Z\",\n    \"updatedAt\": \"2025-10-03T20:01:51.177Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateSubject",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/subjects/{{subjectId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"subjects",
+								"{{subjectId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateSubject",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2-5g0a/leDyqDaMALBAsNWF8Q7nbk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:09:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject updated successfully!\",\n    \"subject\": {\n        \"id\": \"68e02bafdb21739e19c7e781\",\n        \"name\": \"Advanced Mathematics\",\n        \"code\": \"MATH-101\",\n        \"description\": \"Covers algebra, trigonometry, and calculus\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteSubject",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/subjects/{{subjectId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"subjects",
+								"{{subjectId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteSubject",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-om3OU5XFeEOmsZ2dk24b0hJuTas\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:10:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject soft deleted successfully!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Classes",
+			"item": [
+				{
+					"name": "createClass",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"grade\": 9,\r\n  \"section\": \"B\",\r\n  \"subjects\": [\"68e4d60a10121304f94ed066\", \"68e4d66f10121304f94ed06c\"],\r\n  \"classTeacher\": \"68e4d4c8ae9e8600d3872e56\",\r\n  \"campus\": \"68e4d4c8ae9e8600d3872e4c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"classes",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createSubject",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"English\",\r\n  \"code\": \"ENG-105\",\r\n  \"description\": \"Basic English\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "120"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"78-B+W4qAnGHR81Sw3CdvpCduT1j5k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:05:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject created sucessfully!\",\n    \"subject\": {\n        \"id\": \"68e02c739d00417770c301ba\",\n        \"name\": \"English\",\n        \"code\": \"ENG-105\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllClasses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"classes",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllSubjects",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "741"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e5-9TE33b+i6budbBjgmV3PJmEzoSc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:06:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"68e02bafdb21739e19c7e781\",\n        \"name\": \"Mathematics\",\n        \"code\": \"MATH-101\",\n        \"description\": \"Basic Algebra and Arithmetic\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:01:51.177Z\",\n        \"updatedAt\": \"2025-10-03T20:01:51.177Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68e02be3db21739e19c7e787\",\n        \"name\": \"English\",\n        \"code\": \"ENG-101\",\n        \"description\": \"Basic English\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:02:43.013Z\",\n        \"updatedAt\": \"2025-10-03T20:02:43.013Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"68e02c739d00417770c301ba\",\n        \"name\": \"English\",\n        \"code\": \"ENG-105\",\n        \"description\": \"Basic English\",\n        \"isActive\": true,\n        \"createdBy\": \"68dedbf04089c385dd97881a\",\n        \"createdAt\": \"2025-10-03T20:05:07.768Z\",\n        \"updatedAt\": \"2025-10-03T20:05:07.768Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getClass",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/classes/{{classId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"classes",
+								"{{classId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getSubject",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-fJESUbnye9xnrEgF/y3rR1DTACE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:07:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"68e02bafdb21739e19c7e781\",\n    \"name\": \"Mathematics\",\n    \"code\": \"MATH-101\",\n    \"description\": \"Basic Algebra and Arithmetic\",\n    \"isActive\": true,\n    \"createdBy\": \"68dedbf04089c385dd97881a\",\n    \"createdAt\": \"2025-10-03T20:01:51.177Z\",\n    \"updatedAt\": \"2025-10-03T20:01:51.177Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateClass",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"grade\": 9,\r\n  \"section\": \"B\",\r\n  \"subjects\": [\"68e4d60a10121304f94ed066\", \"68e4d66f10121304f94ed06c\"],\r\n  \"classTeacher\": \"68e4d4c8ae9e8600d3872e56\",\r\n  \"campus\": \"68e4d4c8ae9e8600d3872e4c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classes/{{classId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"classes",
+								"{{classId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateSubject",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2-5g0a/leDyqDaMALBAsNWF8Q7nbk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:09:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject updated successfully!\",\n    \"subject\": {\n        \"id\": \"68e02bafdb21739e19c7e781\",\n        \"name\": \"Advanced Mathematics\",\n        \"code\": \"MATH-101\",\n        \"description\": \"Covers algebra, trigonometry, and calculus\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteClass",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classes/{{classId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"classes",
+								"{{classId}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteSubject",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Mathematics\",\r\n  \"description\": \"Covers algebra, trigonometry, and calculus\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/subjects/68e02bafdb21739e19c7e781",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"subjects",
+										"68e02bafdb21739e19c7e781"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-om3OU5XFeEOmsZ2dk24b0hJuTas\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 20:10:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Subject soft deleted successfully!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "StudentAttendance",
+					"item": [
+						{
+							"name": "markAttendances",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"classId\": \"68edf081e7f0599634660ba7\",\r\n  \"term\": \"FirstTerm\",\r\n  \"academicSession\": \"2025-2026\",\r\n  \"records\": [\r\n    { \"rollNumber\": \"6B01\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"6B02\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"6B03\", \"status\": \"absent\" },\r\n    { \"rollNumber\": \"6B04\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"6B05\", \"status\": \"leave\" }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/students/markAttendance",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"students",
+										"markAttendance"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "markAttendances",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"classId\": \"68e93f766852ae289c84c7e0\",\r\n  \"records\": [\r\n    { \"rollNumber\": \"8B01\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"8B02\", \"status\": \"absent\" },\r\n    { \"rollNumber\": \"8B02\", \"status\": \"absent\" },\r\n    { \"rollNumber\": \"8B04\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"8B05\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"8B06\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"8B07\", \"status\": \"present\" },\r\n    { \"rollNumber\": \"8B08\", \"status\": \"present\" }\r\n  ]\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/students/markAttendance",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"students",
+												"markAttendance"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "601"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"259-rSqeejGcoJ0WHzNh3PIjClavGk0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 11:37:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Bulk student attendance processed\",\n    \"results\": [\n        {\n            \"rollNumber\": \"8B01\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B02\",\n            \"status\": \"absent\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B02\",\n            \"status\": \"absent\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B04\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B05\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B06\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B07\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        },\n        {\n            \"rollNumber\": \"8B08\",\n            \"status\": \"present\",\n            \"message\": \"Already marked\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "getAllStudentAttendances",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/students?pageNumber=1&pageSize=10&from=2025-10-01&to=2025-10-13",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"students"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "from",
+											"value": "2025-10-01"
+										},
+										{
+											"key": "to",
+											"value": "2025-10-13"
+										},
+										{
+											"key": "academicSession",
+											"value": "2025-2026",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getAllAtendances",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/students?pageNumber=2&pageSize=10&from=2025-10-01&to=2025-10-10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"students"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "2"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "from",
+													"value": "2025-10-01"
+												},
+												{
+													"key": "to",
+													"value": "2025-10-10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3808"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ee0-SGNjIssfkjtcjtG16ecouxXPFps\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 10:50:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"records\": [\n        {\n            \"_id\": \"68e93f896852ae289c84eab4\",\n            \"status\": \"present\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.946Z\",\n            \"classDetails\": {\n                \"grade\": 7,\n                \"section\": \"A\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A04\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f796852ae289c84c8be\",\n                \"name\": \"Student 7A-4\",\n                \"email\": \"student_c7da_4@school.com\",\n                \"contact\": \"030300004\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84eaa0\",\n            \"status\": \"present\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.937Z\",\n            \"classDetails\": {\n                \"grade\": 7,\n                \"section\": \"A\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A02\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8b6\",\n                \"name\": \"Student 7A-2\",\n                \"email\": \"student_c7da_2@school.com\",\n                \"contact\": \"030300002\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea96\",\n            \"status\": \"leave\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.933Z\",\n            \"classDetails\": {\n                \"grade\": 7,\n                \"section\": \"A\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A01\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8b2\",\n                \"name\": \"Student 7A-1\",\n                \"email\": \"student_c7da_1@school.com\",\n                \"contact\": \"030300001\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea8c\",\n            \"status\": \"absent\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.929Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B08\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8ae\",\n                \"name\": \"Student 6B-8\",\n                \"email\": \"student_c7d8_8@school.com\",\n                \"contact\": \"030300008\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea82\",\n            \"status\": \"present\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.925Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B07\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8aa\",\n                \"name\": \"Student 6B-7\",\n                \"email\": \"student_c7d8_7@school.com\",\n                \"contact\": \"030300007\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea78\",\n            \"status\": \"absent\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.921Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B06\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8a6\",\n                \"name\": \"Student 6B-6\",\n                \"email\": \"student_c7d8_6@school.com\",\n                \"contact\": \"030300006\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea6e\",\n            \"status\": \"absent\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.917Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B05\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c8a2\",\n                \"name\": \"Student 6B-5\",\n                \"email\": \"student_c7d8_5@school.com\",\n                \"contact\": \"030300005\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea64\",\n            \"status\": \"present\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.913Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B04\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c89e\",\n                \"name\": \"Student 6B-4\",\n                \"email\": \"student_c7d8_4@school.com\",\n                \"contact\": \"030300004\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea5a\",\n            \"status\": \"leave\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.910Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B03\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f786852ae289c84c89a\",\n                \"name\": \"Student 6B-3\",\n                \"email\": \"student_c7d8_3@school.com\",\n                \"contact\": \"030300003\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84ea50\",\n            \"status\": \"leave\",\n            \"class\": \"68e93f766852ae289c84c7d8\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-10T17:16:57.905Z\",\n            \"classDetails\": {\n                \"grade\": 6,\n                \"section\": \"B\"\n            },\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"6B02\"\n            },\n            \"studentDetails\": {\n                \"_id\": \"68e93f776852ae289c84c896\",\n                \"name\": \"Student 6B-2\",\n                \"email\": \"student_c7d8_2@school.com\",\n                \"contact\": \"030300002\"\n            }\n        }\n    ],\n    \"countSummary\": {\n        \"present\": 48,\n        \"absent\": 57,\n        \"leave\": 44\n    },\n    \"total\": 10\n}"
+								}
+							]
+						},
+						{
+							"name": "getStudentAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/students/{{studentId}}?pageNumber=1&pageSize=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"students",
+										"{{studentId}}"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "from",
+											"value": "2025-10-01",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "2025-10-10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getStudentAttendance",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/students/{{studentId}}?pageNumber=1&pageSize=10&from=2025-10-01&to=2025-10-10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"students",
+												"{{studentId}}"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "from",
+													"value": "2025-10-01"
+												},
+												{
+													"key": "to",
+													"value": "2025-10-10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1179"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"49b-k+UfYOshpszhBmrqAwOoZa41h3c\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 10:49:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"total\": 4,\n    \"records\": [\n        {\n            \"_id\": \"68e93f896852ae289c84eaac\",\n            \"status\": \"leave\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-09T17:16:57.943Z\",\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A03\"\n            },\n            \"studentDetails\": {\n                \"name\": \"Student 7A-3\",\n                \"email\": \"student_c7da_3@school.com\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84eaae\",\n            \"status\": \"absent\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-08T17:16:57.943Z\",\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A03\"\n            },\n            \"studentDetails\": {\n                \"name\": \"Student 7A-3\",\n                \"email\": \"student_c7da_3@school.com\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84eab0\",\n            \"status\": \"absent\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-07T17:16:57.944Z\",\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A03\"\n            },\n            \"studentDetails\": {\n                \"name\": \"Student 7A-3\",\n                \"email\": \"student_c7da_3@school.com\"\n            }\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84eab2\",\n            \"status\": \"leave\",\n            \"class\": \"68e93f766852ae289c84c7da\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"date\": \"2025-10-06T17:16:57.945Z\",\n            \"enrollmentDetails\": {\n                \"rollNumber\": \"7A03\"\n            },\n            \"studentDetails\": {\n                \"name\": \"Student 7A-3\",\n                \"email\": \"student_c7da_3@school.com\"\n            }\n        }\n    ],\n    \"countSummary\": {\n        \"present\": 0,\n        \"absent\": 2,\n        \"leave\": 2\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "updateStudentAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"present\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/students/student/{{attendanceId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"students",
+										"student",
+										"{{attendanceId}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "updateStudentAttendance",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"present\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/students/student/{{attendanceId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"students",
+												"student",
+												"{{attendanceId}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29-u5YLu5QaPjmOsW+XziymZ5LKbkc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 10:49:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Student attendance updated!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "deleteStudentAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/students/student/{{attendanceId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"students",
+										"student",
+										"{{attendanceId}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "deleteStudentAttendance",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"leave\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/students/student/{{attendanceId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"students",
+												"student",
+												"{{attendanceId}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29-a+N7fFuzKaAaSxLj9MyDRhq28B8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 09:34:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Student attendance deleted!\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "TeacherAttendance",
+					"item": [
+						{
+							"name": "getAllTeachersAttendance",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers?pageNumber=2&pageSize=20&from=2025-10-01&to=2025-10-10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "2"
+										},
+										{
+											"key": "pageSize",
+											"value": "20"
+										},
+										{
+											"key": "from",
+											"value": "2025-10-01"
+										},
+										{
+											"key": "to",
+											"value": "2025-10-10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getAllTeachersAttendance",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/teachers?pageNumber=2&pageSize=20&from=2025-10-01&to=2025-10-10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"teachers"
+											],
+											"query": [
+												{
+													"key": "pageNumber",
+													"value": "2"
+												},
+												{
+													"key": "pageSize",
+													"value": "20"
+												},
+												{
+													"key": "from",
+													"value": "2025-10-01"
+												},
+												{
+													"key": "to",
+													"value": "2025-10-10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "6788"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1a84-W5bWcyX6sjK+m58SlREUC51HWlY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Oct 2025 18:39:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"68e93f896852ae289c84e9be\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-08T03:14:57.837Z\",\n        \"checkOut\": \"2025-10-08T09:14:57.837Z\",\n        \"date\": \"2025-10-08T09:14:57.837Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7ca\",\n            \"name\": \"South Teacher 1\",\n            \"email\": \"south-001_teacher1@school.com\",\n            \"contact\": \"03020000101\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e996\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-08T03:27:57.818Z\",\n        \"checkOut\": \"2025-10-08T09:13:57.818Z\",\n        \"date\": \"2025-10-08T09:13:57.818Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7c2\",\n            \"name\": \"North Teacher 3\",\n            \"email\": \"north-001_teacher3@school.com\",\n            \"contact\": \"03020000103\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9aa\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-08T03:44:57.828Z\",\n        \"checkOut\": \"2025-10-08T09:12:57.828Z\",\n        \"date\": \"2025-10-08T09:12:57.828Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7c6\",\n            \"name\": \"North Teacher 5\",\n            \"email\": \"north-001_teacher5@school.com\",\n            \"contact\": \"03020000105\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9f0\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-08T03:49:57.861Z\",\n        \"checkOut\": \"2025-10-08T09:08:57.861Z\",\n        \"date\": \"2025-10-08T09:08:57.861Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7d4\",\n            \"name\": \"South Teacher 6\",\n            \"email\": \"south-001_teacher6@school.com\",\n            \"contact\": \"03020000106\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e984\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:57:57.811Z\",\n        \"checkOut\": \"2025-10-07T09:52:57.811Z\",\n        \"date\": \"2025-10-07T09:52:57.811Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7be\",\n            \"name\": \"North Teacher 1\",\n            \"email\": \"north-001_teacher1@school.com\",\n            \"contact\": \"03020000101\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9de\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:38:57.853Z\",\n        \"checkOut\": \"2025-10-07T09:48:57.853Z\",\n        \"date\": \"2025-10-07T09:48:57.853Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7d0\",\n            \"name\": \"South Teacher 4\",\n            \"email\": \"south-001_teacher4@school.com\",\n            \"contact\": \"03020000104\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e998\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:37:57.818Z\",\n        \"checkOut\": \"2025-10-07T09:45:57.818Z\",\n        \"date\": \"2025-10-07T09:45:57.818Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7c2\",\n            \"name\": \"North Teacher 3\",\n            \"email\": \"north-001_teacher3@school.com\",\n            \"contact\": \"03020000103\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9d4\",\n        \"status\": \"leave\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:24:57.849Z\",\n        \"checkOut\": \"2025-10-07T09:41:57.849Z\",\n        \"date\": \"2025-10-07T09:41:57.849Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7ce\",\n            \"name\": \"South Teacher 3\",\n            \"email\": \"south-001_teacher3@school.com\",\n            \"contact\": \"03020000103\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9ca\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:40:57.844Z\",\n        \"checkOut\": \"2025-10-07T09:39:57.844Z\",\n        \"date\": \"2025-10-07T09:39:57.844Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7cc\",\n            \"name\": \"South Teacher 2\",\n            \"email\": \"south-001_teacher2@school.com\",\n            \"contact\": \"03020000102\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9ac\",\n        \"status\": \"leave\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:38:57.829Z\",\n        \"checkOut\": \"2025-10-07T09:35:57.829Z\",\n        \"date\": \"2025-10-07T09:35:57.829Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7c6\",\n            \"name\": \"North Teacher 5\",\n            \"email\": \"north-001_teacher5@school.com\",\n            \"contact\": \"03020000105\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9c0\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:53:57.839Z\",\n        \"checkOut\": \"2025-10-07T09:32:57.839Z\",\n        \"date\": \"2025-10-07T09:32:57.839Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7ca\",\n            \"name\": \"South Teacher 1\",\n            \"email\": \"south-001_teacher1@school.com\",\n            \"contact\": \"03020000101\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e98e\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:44:57.815Z\",\n        \"checkOut\": \"2025-10-07T09:24:57.815Z\",\n        \"date\": \"2025-10-07T09:24:57.815Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7c0\",\n            \"name\": \"North Teacher 2\",\n            \"email\": \"north-001_teacher2@school.com\",\n            \"contact\": \"03020000102\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9e8\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:54:57.858Z\",\n        \"checkOut\": \"2025-10-07T09:12:57.858Z\",\n        \"date\": \"2025-10-07T09:12:57.858Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7d2\",\n            \"name\": \"South Teacher 5\",\n            \"email\": \"south-001_teacher5@school.com\",\n            \"contact\": \"03020000105\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9b6\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:03:57.833Z\",\n        \"checkOut\": \"2025-10-07T09:12:57.833Z\",\n        \"date\": \"2025-10-07T09:12:57.833Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7c8\",\n            \"name\": \"North Teacher 6\",\n            \"email\": \"north-001_teacher6@school.com\",\n            \"contact\": \"03020000106\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9f2\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-07T03:16:57.862Z\",\n        \"checkOut\": \"2025-10-07T09:05:57.862Z\",\n        \"date\": \"2025-10-07T09:05:57.862Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7d4\",\n            \"name\": \"South Teacher 6\",\n            \"email\": \"south-001_teacher6@school.com\",\n            \"contact\": \"03020000106\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9a2\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-07T03:59:57.824Z\",\n        \"checkOut\": \"2025-10-07T09:04:57.824Z\",\n        \"date\": \"2025-10-07T09:04:57.824Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7c4\",\n            \"name\": \"North Teacher 4\",\n            \"email\": \"north-001_teacher4@school.com\",\n            \"contact\": \"03020000104\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9b8\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-06T03:07:57.834Z\",\n        \"checkOut\": \"2025-10-06T09:59:57.834Z\",\n        \"date\": \"2025-10-06T09:59:57.834Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7c8\",\n            \"name\": \"North Teacher 6\",\n            \"email\": \"north-001_teacher6@school.com\",\n            \"contact\": \"03020000106\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9e0\",\n        \"status\": \"absent\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-06T03:13:57.854Z\",\n        \"checkOut\": \"2025-10-06T09:57:57.854Z\",\n        \"date\": \"2025-10-06T09:57:57.854Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7d0\",\n            \"name\": \"South Teacher 4\",\n            \"email\": \"south-001_teacher4@school.com\",\n            \"contact\": \"03020000104\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9a4\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7ac\",\n        \"checkIn\": \"2025-10-06T03:03:57.825Z\",\n        \"checkOut\": \"2025-10-06T09:56:57.825Z\",\n        \"date\": \"2025-10-06T09:56:57.825Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f756852ae289c84c7c4\",\n            \"name\": \"North Teacher 4\",\n            \"email\": \"north-001_teacher4@school.com\",\n            \"contact\": \"03020000104\"\n        }\n    },\n    {\n        \"_id\": \"68e93f896852ae289c84e9d6\",\n        \"status\": \"present\",\n        \"campus\": \"68e93f756852ae289c84c7af\",\n        \"checkIn\": \"2025-10-06T03:26:57.850Z\",\n        \"checkOut\": \"2025-10-06T09:51:57.850Z\",\n        \"date\": \"2025-10-06T09:51:57.850Z\",\n        \"teacherDetails\": {\n            \"_id\": \"68e93f766852ae289c84c7ce\",\n            \"name\": \"South Teacher 3\",\n            \"email\": \"south-001_teacher3@school.com\",\n            \"contact\": \"03020000103\"\n        }\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "getTeacherAttendance",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers/{{teacherId}}?from=2025-10-09&to=2025-10-10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers",
+										"{{teacherId}}"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2025-10-09"
+										},
+										{
+											"key": "to",
+											"value": "2025-10-10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getTeacherAttendance",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/attendance/teachers/{{teacherId}}?from=2025-10-09&to=2025-10-10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"attendance",
+												"teachers",
+												"{{teacherId}}"
+											],
+											"query": [
+												{
+													"key": "from",
+													"value": "2025-10-09"
+												},
+												{
+													"key": "to",
+													"value": "2025-10-10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "469"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d5-kY6KGPMvRUKJKXFuzPocWywT/K4\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 11 Oct 2025 08:52:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"records\": [\n        {\n            \"_id\": \"68e93f896852ae289c84e9a6\",\n            \"status\": \"absent\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"checkIn\": \"2025-10-10T03:37:57.826Z\",\n            \"checkOut\": \"2025-10-10T09:50:57.826Z\",\n            \"date\": \"2025-10-10T09:50:57.826Z\"\n        },\n        {\n            \"_id\": \"68e93f896852ae289c84e9a8\",\n            \"status\": \"absent\",\n            \"campus\": \"68e93f756852ae289c84c7ac\",\n            \"checkIn\": \"2025-10-09T03:20:57.827Z\",\n            \"checkOut\": \"2025-10-09T09:02:57.827Z\",\n            \"date\": \"2025-10-09T09:02:57.827Z\"\n        }\n    ],\n    \"countSummary\": {\n        \"present\": 0,\n        \"absent\": 2,\n        \"leave\": 0\n    },\n    \"total\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "markAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"teacher\": \"671f9c82ab12345678abcd12\",\r\n  \"status\": \"present\"\r\n//   \"campus\": \"671f8a9d889abc1234567\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers/markAttendance",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers",
+										"markAttendance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkout",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"teacher\": \"671f9c82ab12345678abcd12\"\r\n//   \"status\": \"present\"\r\n//   \"campus\": \"671f8a9d889abc1234567\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers/checkout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"leave\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers/teacher/68e93f896852ae289c84e9a6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers",
+										"teacher",
+										"68e93f896852ae289c84e9a6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteAttendance",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"leave\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/attendance/teachers/teacher/68e93f896852ae289c84e9a6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"attendance",
+										"teachers",
+										"teacher",
+										"68e93f896852ae289c84e9a6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Exams",
+			"item": [
+				{
+					"name": "createExam",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"term\": \"SecondTerm\",\r\n    \"academicSession\": \"2024-2025\",\r\n    \"classId\": \"68e4d7f110121304f94ed07a\",\r\n    \"subjectId\": \"68e4d60a10121304f94ed066\",\r\n    \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n    \"totalMarks\": 20,\r\n    \"type\": \"Homework\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/exams/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllExam",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/exams/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExam",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"term\": \"SecondTerm\",\r\n//     \"academicSession\": \"2024-2025\",\r\n//     \"classId\": \"68e4d7f110121304f94ed07a\",\r\n//     \"subjectId\": \"68e4d60a10121304f94ed066\",\r\n//     \"campusId\": \"68e4d4c8ae9e8600d3872e4c\",\r\n//     \"totalMarks\": 20,\r\n//     \"type\": \"Assessment 1\"\r\n// }\r\n{\r\n    \"type\": \"Assessment 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/exams/{{examId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"{{examId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/exams/{{examId}}/delete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"{{examId}}",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scores",
+			"item": [
+				{
+					"name": "addScore",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"68e4d4c8ae9e8600d3872e54\",\r\n    \"classId\": \"68e4d7ad10121304f94ed077\",\r\n    \"subjectId\": \"68e4d60a10121304f94ed066\",\r\n    \"examId\": \"68e643791ca1344edf05e46d\",\r\n    \"campusId\": \"68e93f756852ae289c84c7ac\",\r\n    \"marksObtained\":  70,\r\n    \"remarks\": \"You can be good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/score/addScore",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"addScore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getScore",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/score/examScores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"examScores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateScore",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"marksObtained\": 90,\r\n    \"remarks\": \"Welldone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/score/updateScore/{{scoreId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"updateScore",
+								"{{scoreId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteScore",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/score/examScores/{{scoreId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"score",
+								"examScores",
+								"{{scoreId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marksheet",
+			"item": [
+				{
+					"name": "getMarksheet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/result/marksheet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"result",
+								"marksheet"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "{{studentId}}",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "downloadZIP",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Study Recommendation",
+			"item": [
+				{
+					"name": "getRecommendation",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/ai/recommendation/{{studentId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ai",
+								"recommendation",
+								"{{studentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "getOverview",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/getOverview",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"getOverview"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-01-10",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "2025-10-20",
+									"disabled": true
+								},
+								{
+									"key": "campusId",
+									"value": "68ebef139e7d01b3baa15f63",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getOverview",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/dashboard/super-admin/getOverview",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"super-admin",
+										"getOverview"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-cpH+rPlAi7EmhGlHi5BKmjHlj6M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Oct 2025 20:38:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"campusCount\": 2,\n        \"studentCount\": 97,\n        \"teacherCount\": 12\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getTopPerformers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/getTopPerformers?academicSession=2025-2026&term=FirstTerm",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"getTopPerformers"
+							],
+							"query": [
+								{
+									"key": "campusId",
+									"value": "68ebef139e7d01b3baa15f63",
+									"disabled": true
+								},
+								{
+									"key": "academicSession",
+									"value": "2025-2026"
+								},
+								{
+									"key": "term",
+									"value": "FirstTerm"
+								},
+								{
+									"key": "classId",
+									"value": "68ebef159e7d01b3baa15f8d",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getTopPerformers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/dashboard/getTopPerformers?academicSession=2025-2026&term=FirstTerm",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"getTopPerformers"
+									],
+									"query": [
+										{
+											"key": "campusId",
+											"value": "68ebef139e7d01b3baa15f63",
+											"disabled": true
+										},
+										{
+											"key": "academicSession",
+											"value": "2025-2026"
+										},
+										{
+											"key": "term",
+											"value": "FirstTerm"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "879"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36f-nJxF86D6oS8suwdJw7GCuDZr84Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 13 Oct 2025 17:48:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"filtersApplied\": {\n        \"academicSession\": \"2025-2026\",\n        \"term\": \"FirstTerm\"\n    },\n    \"data\": [\n        {\n            \"campusId\": \"68ebef139e7d01b3baa15f63\",\n            \"campusName\": \"North Campus\",\n            \"topStudents\": [\n                {\n                    \"studentId\": \"68ebef199e7d01b3baa16089\",\n                    \"name\": \"Student 7B-1\",\n                    \"avgMarks\": 85.375,\n                    \"avgPercentage\": 85.38\n                },\n                {\n                    \"studentId\": \"68ebef1a9e7d01b3baa160a9\",\n                    \"name\": \"Student 8A-1\",\n                    \"avgMarks\": 81.375,\n                    \"avgPercentage\": 81.38\n                },\n                {\n                    \"studentId\": \"68ebef199e7d01b3baa16095\",\n                    \"name\": \"Student 7B-4\",\n                    \"avgMarks\": 78.125,\n                    \"avgPercentage\": 78.12\n                }\n            ]\n        },\n        {\n            \"campusId\": \"68ebef139e7d01b3baa15f66\",\n            \"campusName\": \"South Campus\",\n            \"topStudents\": [\n                {\n                    \"studentId\": \"68ebef229e7d01b3baa16181\",\n                    \"name\": \"Student 8A-7\",\n                    \"avgMarks\": 83.375,\n                    \"avgPercentage\": 83.38\n                },\n                {\n                    \"studentId\": \"68ebef209e7d01b3baa16141\",\n                    \"name\": \"Student 7A-7\",\n                    \"avgMarks\": 80.625,\n                    \"avgPercentage\": 80.62\n                },\n                {\n                    \"studentId\": \"68ebef219e7d01b3baa16165\",\n                    \"name\": \"Student 7B-8\",\n                    \"avgMarks\": 80.375,\n                    \"avgPercentage\": 80.38\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getDropRatio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    // \"email\": \"north.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    \"email\": \"north-001_teacher1@school.com\",\r\n    \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher5@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/getDropRatio",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"getDropRatio"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-10-1",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "2025-10-13",
+									"disabled": true
+								},
+								{
+									"key": "campusId",
+									"value": "68ebef139e7d01b3baa15f63",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getDropRatio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    // \"email\": \"north.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    \"email\": \"north-001_teacher1@school.com\",\r\n    \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher5@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/dashboard/getDropRatio",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"getDropRatio"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-1L1ZFNJ17INOPVfe8Mp1kmOG1Bo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Oct 2025 20:31:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"totalStudents\": 98,\n        \"inactiveStudents\": 1,\n        \"dropRatio\": \"1.02\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getCampusComparison",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    // \"email\": \"north.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    \"email\": \"north-001_teacher1@school.com\",\r\n    \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher5@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/super-admin/getCampusComparison",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"super-admin",
+								"getCampusComparison"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-10-1",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "2025-10-13",
+									"disabled": true
+								},
+								{
+									"key": "campusId",
+									"value": "68ebef139e7d01b3baa15f63",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getDropRatio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    //super-admin\r\n    // \"email\": \"superadmin@example.com\",\r\n    // \"password\": \"superpassword\"\r\n\r\n//---------------------------------------------------\r\n\r\n    //campus-admin 1\r\n    // \"email\": \"north.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n    \r\n    //campus-admin 2\r\n    // \"email\": \"south.admin@school.com\",\r\n    // \"password\": \"admin123\"\r\n\r\n//--------------------------------------------------------------------\r\n\r\n    // Teacher-1 (NORTH CAMPUS)\r\n    \"email\": \"north-001_teacher1@school.com\",\r\n    \"password\": \"teacher123\"\r\n\r\n    // Teacher-2 (NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    // Teacher-3 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"   \r\n\r\n    // Teacher-4 (SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher2@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n//---------------------------------------------------------\r\n\r\n    //Teacher 1 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher5@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 2 (class-teacher NORTH CAMPUS)\r\n    // \"email\": \"north-001_teacher3@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 3 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher1@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n    //Teacher 4 (class-teacher SOUTH CAMPUS)\r\n    // \"email\": \"south-001_teacher6@school.com\",\r\n    // \"password\": \"teacher123\"\r\n\r\n// ------------------------------------------------\r\n\r\n    //Student-1 (SOUTH CAMPUS)\r\n    // \"email\": \"student_141d_1@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-2 (NORTH-CAMPUS)\r\n    // \"email\": \"student_141b_8@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-3 (SOUTH-CAMPUS)\r\n    // \"email\": \"student_141d_2@school.com\",\r\n    // \"password\": \"student123\"\r\n\r\n    //Student-4 (NORTH-CAMPUS)\r\n    // \"email\": \"student_1411_1@school.com\",\r\n    // \"password\": \"student123\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/dashboard/getDropRatio",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"getDropRatio"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-1L1ZFNJ17INOPVfe8Mp1kmOG1Bo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Oct 2025 20:31:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"totalStudents\": 98,\n        \"inactiveStudents\": 1,\n        \"dropRatio\": \"1.02\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "classId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "subjectId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "teacherId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "campusId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "studentId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "enrollemntId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "enrollmentId",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
