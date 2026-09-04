@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Plus, Pencil, Trash2, FileText, Sparkles, Search } from "lucide-react";
@@ -74,6 +74,9 @@ const Exams = () => {
   const [filterSession, setFilterSession] = useState(CURRENT_SESSION);
   const [filterSubject, setFilterSubject] = useState("all");
   const [examSearch, setExamSearch] = useState("");
+  // Tracks whether the user manually changed the session filter
+  // (prevents the auto-fallback below from overriding their choice)
+  const sessionTouched = useRef(false);
   
   const [selectedExams, setSelectedExams] = useState([]);
   const [bulkDeleting, setBulkDeleting] = useState(false);
@@ -133,6 +136,17 @@ const Exams = () => {
       setExams(flatExams);
       setClasses(classRes.data || []);
       setSubjects(Array.isArray(subjectRes) ? subjectRes : subjectRes.data || []);
+
+      // Smart session fallback: if the default (current) session has no exams
+      // but other sessions do, switch to the latest session that has data
+      if (flatExams.length > 0 && !sessionTouched.current) {
+        const sessionsWithData = [
+          ...new Set(flatExams.map((e) => e.academicSession).filter(Boolean)),
+        ];
+        if (!sessionsWithData.includes(filterSession) && sessionsWithData.length > 0) {
+          setFilterSession(sessionsWithData.sort().pop());
+        }
+      }
     } catch {
       toast.error("Failed to load exams");
     } finally {
@@ -419,7 +433,7 @@ const Exams = () => {
               </SelectContent>
             </Select>
 
-            <Select value={filterSession} onValueChange={setFilterSession}>
+            <Select value={filterSession} onValueChange={(v) => { sessionTouched.current = true; setFilterSession(v); }}>
               <SelectTrigger className="w-36">
                 <SelectValue placeholder="All Sessions" />
               </SelectTrigger>

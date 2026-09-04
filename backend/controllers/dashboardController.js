@@ -686,7 +686,6 @@ export const getStudentOverview = async (req, res) => {
           averageMarks: 0,
           upcomingExams: 0,
           rank: 0,
-          schedule: [],
         }
       });
     }
@@ -706,36 +705,43 @@ export const getStudentOverview = async (req, res) => {
     
     const attendancePercentage = totalDays > 0 ? Math.round((presentDays / totalDays) * 100) : 0;
 
-    // Average Marks & Rank
+    // Average Marks (true percentage: obtained / total per exam) & Rank
     const allScoresInClass = await Score.aggregate([
       { $match: { class: enrollment.class._id } },
-      { $group: { _id: "$student", avgMarks: { $avg: "$marksObtained" } } },
-      { $sort: { avgMarks: -1 } }
+      { $lookup: { from: "exams", localField: "exam", foreignField: "_id", as: "examData" } },
+      { $unwind: "$examData" },
+      {
+        $group: {
+          _id: "$student",
+          totalObtained: { $sum: "$marksObtained" },
+          totalPossible: { $sum: "$examData.totalMarks" },
+        },
+      },
+      {
+        $addFields: {
+          percentage: {
+            $cond: [
+              { $gt: ["$totalPossible", 0] },
+              { $multiply: [{ $divide: ["$totalObtained", "$totalPossible"] }, 100] },
+              0,
+            ],
+          },
+        },
+      },
+      { $sort: { percentage: -1 } },
     ]);
 
     let averageMarks = 0;
     let rank = 0;
-    
+
     const studentScore = allScoresInClass.find(s => s._id.toString() === studentId.toString());
     if (studentScore) {
-      averageMarks = Math.round(studentScore.avgMarks);
+      averageMarks = Math.round(studentScore.percentage);
       rank = allScoresInClass.findIndex(s => s._id.toString() === studentId.toString()) + 1;
     }
 
     // Upcoming Exams
-    const upcomingExamsCount = await Exam.countDocuments({ class: enrollment.class._id }); // In a real scenario, filter by date >= today
-
-    // Upcoming Schedule (Exams)
-    const upcomingExamsList = await Exam.find({ class: enrollment.class._id })
-      .populate("subject")
-      .limit(3)
-      .sort({ createdAt: -1 });
-
-    const schedule = upcomingExamsList.map(exam => ({
-      title: `${exam.type} - ${exam.subject?.name || "Subject"}`,
-      time: "Upcoming", // Format date if available
-      type: "Exam"
-    }));
+    const upcomingExamsCount = await Exam.countDocuments({ class: enrollment.class._id });
 
     res.status(200).json({
       data: {
@@ -743,7 +749,6 @@ export const getStudentOverview = async (req, res) => {
         averageMarks,
         upcomingExams: upcomingExamsCount,
         rank,
-        schedule,
       }
     });
 

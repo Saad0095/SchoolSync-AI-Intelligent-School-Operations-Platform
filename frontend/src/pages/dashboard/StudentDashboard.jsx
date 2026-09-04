@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Brain, TrendingUp, CalendarDays, Award, BookOpen, Clock } from "lucide-react";
+import { Brain, TrendingUp, CalendarDays, Award, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useAuth } from "../../context/AuthContext";
 import api from "@/utils/api";
 import PageHeader from "@/components/shared/PageHeader";
 import StatCard from "@/components/shared/StatCard";
-import EmptyState from "@/components/shared/EmptyState";
 import { Skeleton } from "@/components/ui/skeleton";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -22,27 +21,18 @@ const StudentDashboard = () => {
     averageMarks: 0,
     upcomingExams: 0,
     rank: 0,
-    schedule: []
   });
   const [recommendation, setRecommendation] = useState("");
+  const [recommendationLoading, setRecommendationLoading] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchDashboardData = async () => {
+    if (!user?._id) return;
+
+    const fetchOverview = async () => {
       try {
-        const [remarksRes, overviewRes] = await Promise.allSettled([
-          api.get(`/ai/recommendation/${user?._id}`),
-          api.get(`/dashboard/student/overview`)
-        ]);
-
-        if (remarksRes.status === "fulfilled") {
-          setRecommendation(remarksRes.value.recommendation || remarksRes.value.data?.recommendation);
-        }
-
-        if (overviewRes.status === "fulfilled") {
-          setStats(overviewRes.value.data?.data || overviewRes.value.data || stats);
-        }
-
+        const overviewRes = await api.get(`/dashboard/student/overview`);
+        setStats(overviewRes.data?.data || overviewRes.data || {});
       } catch (error) {
         console.error("Failed to fetch dashboard data:", error);
       } finally {
@@ -50,7 +40,21 @@ const StudentDashboard = () => {
       }
     };
 
-    if (user?._id) fetchDashboardData();
+    // AI recommendation is slow (LLM call) — load it in the background
+    // so the dashboard renders immediately with stats
+    const fetchRecommendation = async () => {
+      try {
+        const remarksRes = await api.get(`/ai/recommendation/${user._id}`);
+        setRecommendation(remarksRes.recommendation || remarksRes.data?.recommendation || "");
+      } catch (error) {
+        console.error("Failed to fetch AI recommendation:", error);
+      } finally {
+        setRecommendationLoading(false);
+      }
+    };
+
+    fetchOverview();
+    fetchRecommendation();
   }, [user]);
 
   if (loading) {
@@ -105,10 +109,9 @@ const StudentDashboard = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Main Content Area */}
-        <div className="space-y-6 lg:col-span-2">
-          {/* Performance Gauges */}
+      {/* Full-width content */}
+      <div className="space-y-6">
+        {/* Performance Gauges */}
           <div className="grid grid-cols-2 gap-4">
             <Card>
               <CardHeader className="pb-2">
@@ -194,13 +197,7 @@ const StudentDashboard = () => {
               </div>
             </CardHeader>
             <CardContent>
-              {recommendation ? (
-                <div className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground prose-p:leading-relaxed prose-p:my-3 prose-headings:mt-6 prose-headings:mb-3 prose-li:my-1 prose-ul:my-3">
-                  <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
-                    {recommendation}
-                  </ReactMarkdown>
-                </div>
-              ) : (
+              {recommendationLoading ? (
                 <div className="flex flex-col items-center justify-center py-8 text-center">
                   <Brain className="mb-3 size-10 text-ai-accent/50" aria-hidden="true" />
                   <p className="font-medium text-foreground">Generating your insights...</p>
@@ -209,55 +206,23 @@ const StudentDashboard = () => {
                     personalized tips.
                   </p>
                 </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-6">
-          {/* Schedule / Reminders */}
-          <Card>
-            <CardHeader className="border-b border-border/60">
-              <CardTitle className="flex items-center gap-2 text-base">
-                <Clock className="size-4 text-primary" aria-hidden="true" />
-                Upcoming Schedule
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-              {stats.schedule?.length > 0 ? (
-                <ul className="divide-y divide-border/60">
-                  {stats.schedule.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 p-4 transition-colors hover:bg-muted/40"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className={`mt-1.5 size-2 shrink-0 rounded-full ${
-                          item.type === "Exam" ? "bg-destructive" : "bg-primary"
-                        }`}
-                      />
-                      <div className="min-w-0">
-                        <p className="text-sm font-medium text-foreground">{item.title}</p>
-                        <p className="mt-0.5 text-xs text-muted-foreground">{item.time}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              ) : recommendation ? (
+                <div className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground prose-p:leading-relaxed prose-p:my-3 prose-headings:mt-6 prose-headings:mb-3 prose-li:my-1 prose-ul:my-3">
+                  <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
+                    {recommendation}
+                  </ReactMarkdown>
+                </div>
               ) : (
-                <div className="p-4">
-                  <EmptyState
-                    icon={Clock}
-                    title="Nothing scheduled"
-                    description="Upcoming exams and events will appear here."
-                    className="border-0 bg-transparent py-6"
-                  />
+                <div className="flex flex-col items-center justify-center py-8 text-center">
+                  <Brain className="mb-3 size-10 text-ai-accent/50" aria-hidden="true" />
+                  <p className="font-medium text-foreground">No insights available yet</p>
+                  <p className="mt-1 max-w-xs text-xs text-muted-foreground">
+                    Insights will appear once you have exam scores and attendance recorded.
+                  </p>
                 </div>
               )}
             </CardContent>
           </Card>
-        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import api from "@/utils/api";
 import {
   GraduationCap,
@@ -50,6 +50,9 @@ const AddScores = () => {
   const [deletingScore, setDeletingScore] = useState(false);
   const [filterTerm, setFilterTerm] = useState(CURRENT_TERM);
   const [filterSession, setFilterSession] = useState(CURRENT_SESSION);
+    // Tracks whether the user manually changed the session filter
+    // (prevents the auto-fallback below from overriding their choice)
+    const sessionTouched = useRef(false);
 
   const fetchExamData = async () => {
     setLoading(true);
@@ -59,7 +62,33 @@ const AddScores = () => {
       if (filterTerm !== "all") params.term = filterTerm;
       if (filterSession !== "all") params.academicSession = filterSession;
       const res = await api.get("/exams", { params });
-      const payload = res?.data ?? [];
+      let payload = res?.data ?? [];
+
+      // Smart session fallback: if the default (current) session has no exams
+      // but other sessions do, switch to the latest session that has data
+      if (
+        (!payload || payload.length === 0) &&
+        filterSession !== "all" &&
+        !sessionTouched.current
+      ) {
+        const allParams = { page: 1, limit: 100 };
+        if (filterTerm !== "all") allParams.term = filterTerm;
+        const allRes = await api.get("/exams", { params: allParams });
+        const allPayload = allRes?.data ?? [];
+        const sessions = new Set();
+        allPayload.forEach((c) =>
+          (c.subjects || []).forEach((s) =>
+            (s.exams || []).forEach((e) => {
+              if (e.academicSession) sessions.add(e.academicSession);
+            })
+          )
+        );
+        if (sessions.size > 0) {
+          setFilterSession([...sessions].sort().pop()); // refetch via useEffect
+          return;
+        }
+      }
+
       setExamData(payload);
       setClasses(payload);
     } catch (err) {
@@ -278,7 +307,7 @@ const AddScores = () => {
                   </div>
                   <div className="space-y-1.5">
                     <Label htmlFor="scores-session" className="text-xs font-semibold text-muted-foreground">Session</Label>
-                    <Select value={filterSession} onValueChange={(v) => { setFilterSession(v); setSelectedClass(null); setSelectedSubject(null); setSelectedExamType(null); setStudents([]); }}>
+                    <Select value={filterSession} onValueChange={(v) => { sessionTouched.current = true; setFilterSession(v); setSelectedClass(null); setSelectedSubject(null); setSelectedExamType(null); setStudents([]); }}>
                       <SelectTrigger id="scores-session" className="h-9 w-36"><SelectValue /></SelectTrigger>
                       <SelectContent>
                         <SelectItem value="all">All Sessions</SelectItem>
