@@ -74,6 +74,11 @@ const StudentDashboard = () => {
     );
   }
 
+  // Normalize to whole numbers (backend may return decimals or strings,
+  // e.g. "75.0" — display and gauge fill both need clean numbers)
+  const attendancePct = Math.round(Number(stats.attendance) || 0);
+  const avgMarksPct = Math.round(Number(stats.averageMarks) || 0);
+
   return (
     <div className="space-y-6 animate-fade-in pb-8">
       <PageHeader
@@ -86,13 +91,13 @@ const StudentDashboard = () => {
         <StatCard
           icon={CalendarDays}
           label="Attendance"
-          value={`${stats.attendance}%`}
+          value={`${attendancePct}%`}
           tone="info"
         />
         <StatCard
           icon={TrendingUp}
           label="Avg. Marks"
-          value={`${stats.averageMarks}%`}
+          value={`${avgMarksPct}%`}
           tone="success"
         />
         <StatCard
@@ -127,7 +132,7 @@ const StudentDashboard = () => {
                     innerRadius="60%"
                     outerRadius="90%"
                     barSize={14}
-                    data={[{ name: "Attendance", value: stats.attendance || 0, fill: scoreColor(stats.attendance || 0) }]}
+                    data={[{ name: "Attendance", value: attendancePct, fill: scoreColor(attendancePct) }]}
                     startAngle={90}
                     endAngle={-270}
                   >
@@ -140,8 +145,8 @@ const StudentDashboard = () => {
                     />
                   </RadialBarChart>
                 </ResponsiveContainer>
-                <p className="-mt-12 text-3xl font-bold tabular-nums" style={{ color: scoreColor(stats.attendance || 0) }}>
-                  {stats.attendance || 0}%
+                <p className="-mt-12 text-3xl font-bold tabular-nums" style={{ color: scoreColor(attendancePct) }}>
+                  {attendancePct}%
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">Days present</p>
               </CardContent>
@@ -160,7 +165,7 @@ const StudentDashboard = () => {
                     innerRadius="60%"
                     outerRadius="90%"
                     barSize={14}
-                    data={[{ name: "Marks", value: stats.averageMarks || 0, fill: scoreColor(stats.averageMarks || 0) }]}
+                    data={[{ name: "Marks", value: avgMarksPct, fill: scoreColor(avgMarksPct) }]}
                     startAngle={90}
                     endAngle={-270}
                   >
@@ -173,8 +178,8 @@ const StudentDashboard = () => {
                     />
                   </RadialBarChart>
                 </ResponsiveContainer>
-                <p className="-mt-12 text-3xl font-bold tabular-nums" style={{ color: scoreColor(stats.averageMarks || 0) }}>
-                  {stats.averageMarks || 0}%
+                <p className="-mt-12 text-3xl font-bold tabular-nums" style={{ color: scoreColor(avgMarksPct) }}>
+                  {avgMarksPct}%
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">Average score</p>
               </CardContent>
