@@ -6,7 +6,7 @@
 
 **AI-Powered Multi-Campus School Management System**
 
-[Live Demo](https://schoolsync-dashboard.devphic.com) · [API Docs (Postman)](backend/postman_collection/) · [Getting Started](#-getting-started)
+[Live Demo](https://schoolsync-dashboard.devphic.com) · [Features Preview](https://schoolsync.devphic.com) · [Getting Started](#-getting-started)
 
 </div>
 
