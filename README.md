@@ -99,21 +99,12 @@ npm run dev
 
 The app starts on `http://localhost:5173`.
 
-### 3. Seed Demo Data (optional)
-
-Populates the database with 2 campuses, 12 teachers, ~100 students, classes, exams, scores, attendance, and marksheets:
-
-```bash
-cd backend
-node seed/full-seed.js
-```
-
 ## Demo Accounts
 
 | Role | Email | Password |
 | --- | --- | --- |
 | Campus Admin | `north.admin@school.com` | `admin123` |
-| Teacher | `north-001_teacher1@school.com` | `teacher123` |
+| Teacher | `south-001_teacher6@school.com` | `teacher123` |
 | Student | `student_e8af_1@school.com` | `student123` |
 
 > A Super Admin account also exists but is not published for security reasons.
@@ -121,11 +112,6 @@ node seed/full-seed.js
 ## API Documentation
 
 A complete Postman collection covering every endpoint is included at [`backend/postman_collection/`](backend/postman_collection/).
-
-## Team
-
-- **Saad Bin Khalid** — Frontend · [@Saad0095](https://github.com/Saad0095)
-- **Sheheryaar Ansar** — Backend · [@Sheryaar-Ansar](https://github.com/Sheryaar-Ansar)
 
 ---
 
