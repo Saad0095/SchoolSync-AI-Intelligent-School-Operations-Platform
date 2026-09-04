@@ -6,7 +6,7 @@
 
 **AI-Powered Multi-Campus School Management System**
 
-[Live Demo](https://schoolsync.devphic.com) · [API Docs (Postman)](backend/postman_collection/) · [Getting Started](#-getting-started)
+[Live Demo](https://schoolsync-dashboard.devphic.com) · [API Docs (Postman)](backend/postman_collection/) · [Getting Started](#-getting-started)
 
 </div>
 
@@ -131,6 +131,6 @@ A complete Postman collection covering every endpoint is included at [`backend/p
 
 <div align="center">
 
-**[Live Demo](https://schoolsync.devphic.com)**
+**[Live Demo](https://schoolsync-dashboard.devphic.com)**
 
 </div>
