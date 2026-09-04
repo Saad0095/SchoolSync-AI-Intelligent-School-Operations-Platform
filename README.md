@@ -99,6 +99,14 @@ npm run dev
 
 The app starts on `http://localhost:5173`.
 
+### 3. Seed Demo Data (optional)
+Populates the database with 2 campuses, 12 teachers, ~100 students, classes, exams, scores, attendance, and marksheets:
+
+```bash
+cd backend
+node seed/full-seed.js
+```
+
 ## Demo Accounts
 
 | Role | Email | Password |
